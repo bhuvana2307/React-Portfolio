@@ -1,0 +1,74 @@
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 64px;
+}
+
+.header-logo {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(45deg, #1890ff, #722ed1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navigation-menu {
+  border-bottom: none;
+  background: transparent;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.navigation-menu .ant-menu-item {
+  display: flex;
+  align-items: center;
+  margin: 0 8px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.navigation-menu .ant-menu-item:hover {
+  background-color: #f0f5ff;
+  color: #1890ff;
+}
+
+.navigation-menu .ant-menu-item-selected {
+  background-color: #1890ff;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .portfolio-header {
+    padding: 0 20px;
+  }
+  
+  .logo-text {
+    font-size: 20px;
+  }
+  
+  .navigation-menu .ant-menu-item {
+    margin: 0 4px;
+    padding: 0 8px;
+  }
+}

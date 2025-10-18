@@ -1,0 +1,264 @@
+.contact-section {
+  min-height: 100vh;
+  width: 100vw;
+  background: #f8f9fa;
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+}
+
+.contact-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(45deg, #1890ff, #722ed1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-content {
+  margin-top: 2rem;
+}
+
+/* Contact Info Card */
+.contact-info-card,
+.job-invite-card,
+.freelance-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e8e8;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.contact-info-card:hover,
+.job-invite-card:hover,
+.freelance-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.contact-subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.contact-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  color: #1890ff;
+  margin-top: 0.25rem;
+}
+
+.contact-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 0.25rem 0;
+}
+
+.contact-item p {
+  color: #666;
+  margin: 0;
+}
+
+/* Freelance Card */
+.freelance-content {
+  text-align: center;
+  padding: 1rem;
+}
+
+.freelance-icon {
+  font-size: 3rem;
+  color: #52c41a;
+  margin-bottom: 1rem;
+}
+
+.freelance-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.freelance-card p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.freelance-btn {
+  background: linear-gradient(45deg, #52c41a, #73d13d);
+  border: none;
+  border-radius: 8px;
+  padding: 0 2rem;
+  height: 50px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(82, 196, 26, 0.3);
+  transition: all 0.3s ease;
+}
+
+.freelance-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(82, 196, 26, 0.4);
+}
+
+/* Job Invite Form */
+.form-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.form-description {
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.job-invite-form .ant-form-item-label > label {
+  font-weight: 500;
+  color: #333;
+}
+
+.job-invite-form .ant-input,
+.job-invite-form .ant-input-textarea {
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+}
+
+.job-invite-form .ant-input:focus,
+.job-invite-form .ant-input-textarea:focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.submit-btn {
+  background: linear-gradient(45deg, #1890ff, #722ed1);
+  border: none;
+  border-radius: 8px;
+  height: 50px;
+  font-weight: 600;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(24, 144, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(24, 144, 255, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 0 20px;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+  
+  .contact-subtitle,
+  .form-title {
+    font-size: 1.5rem;
+  }
+  
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .freelance-content {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 0 15px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .contact-subtitle,
+  .form-title {
+    font-size: 1.3rem;
+  }
+  
+  .freelance-icon {
+    font-size: 2.5rem;
+  }
+}
+/* Add to Contact.css */
+.direct-email {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e8e8e8;
+  text-align: center;
+}
+
+.email-btn {
+  background: linear-gradient(45deg, #52c41a, #73d13d);
+  border: none;
+  border-radius: 8px;
+  height: 45px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(82, 196, 26, 0.3);
+  transition: all 0.3s ease;
+}
+
+.email-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(82, 196, 26, 0.4);
+}
+
+/* Update the form description */
+.form-description {
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  background: #f0f8ff;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #1890ff;
+}
+/* Add this temporarily to your CSS */
+.ant-message {
+  z-index: 9999 !important;
+  position: fixed !important;
+}

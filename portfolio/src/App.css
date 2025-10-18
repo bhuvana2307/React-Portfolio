@@ -1,0 +1,92 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.app-container {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #f8f9fa;
+}
+
+/* Main portfolio layout */
+.main-content {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Section Styles - For portfolio pages */
+.section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  margin: 0;
+  background: #f8f9fa;
+}
+
+.section-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+/* Ensure all antd components don't add extra padding */
+.ant-layout {
+  background: transparent;
+}
+
+.ant-layout-content {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* Remove any default margins from other elements */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Make sure body has no margin */
+body {
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section-container {
+    padding: 0 20px;
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-container {
+    padding: 0 15px;
+  }
+}
