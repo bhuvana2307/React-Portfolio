@@ -622,7 +622,7 @@ transporter.verify((error, success) => {
 });
 
 // Job Invite Email Route
-app.post('/api/send-job-invite', async (req, res) => {
+app.post('/api/send-email', async (req, res) => {
   console.log('🎯 Job invite request received:', req.body);
   
   const { name, email, company, position, message } = req.body;
