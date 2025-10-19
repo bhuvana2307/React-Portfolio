@@ -3,43 +3,46 @@ import { Card, Button, Form, Input, message, Row, Col } from 'antd';
 import { MailOutlined, UserOutlined, MessageOutlined, RocketOutlined, PhoneOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import './Contact.css';
-// import { message } from 'antd';
+import emailjs from '@emailjs/browser';
 
-const { TextArea } = Input;
+const { TextArea } = Input; // Add this line to define TextArea
 
 const Contact = () => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Backend API URL - change in production
-  const API_BASE_URL = process.env.NODE_ENV === 'production' 
-    ? '/api' 
-    : 'http://localhost:5000/api';
-
   const onFinish = async (values) => {
     setLoading(true);
+    console.log('Environment variables:', {
+    serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+    allEnv: import.meta.env
+  });
     
     try {
-      const response = await fetch(`${API_BASE_URL}/send-email`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      // Replace these with your actual EmailJS keys
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,     // From EmailJS → Email Templates
+        {
+          from_name: values.name,
+          from_email: values.email,
+          company: values.company || 'Not specified',
+          position: values.position,
+          message: values.message
         },
-        body: JSON.stringify(values),
-      });
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY       // From EmailJS → API Keys
+      );
 
-      const result = await response.json();
-
-      if (result.success) {
-        message.success(result.message);
+      if (result.text === 'OK') {
+        message.success('Job invite sent successfully! I will get back to you soon.');
         form.resetFields();
-      } else {
-        throw new Error(result.message);
       }
     } catch (error) {
       console.error('Email sending failed:', error);
-      message.error(error.message || 'Failed to send job invite. Please try again or email me directly.');
+      message.error('Failed to send job invite. Please try again later.');
     } finally {
       setLoading(false);
     }
@@ -70,7 +73,6 @@ const Contact = () => {
                 <div className="contact-item">
                   <MailOutlined className="contact-icon" />
                   <div>
-                    
                     <p>bhuvaneshwarir2307@gmail.com</p>
                   </div>
                 </div>
@@ -78,7 +80,6 @@ const Contact = () => {
                 <div className="contact-item">
                   <PhoneOutlined className="contact-icon" />
                   <div>
-                    
                     <p>+91 8940270152</p>
                   </div>
                 </div>
@@ -86,22 +87,9 @@ const Contact = () => {
                 <div className="contact-item">
                   <EnvironmentOutlined className="contact-icon" />
                   <div>
-                    
                     <p>Tamil Nadu,India</p>
                   </div>
                 </div>
-
-                {/* Direct Email Button
-                <div className="direct-email">
-                  <Button 
-                    type="primary" 
-                    icon={<MailOutlined />}
-                    href="mailto:bhuvaneshwarir2307@gmail.com?subject=Job Opportunity&body=Hi Bhuvaneshwari, I'd like to discuss a job opportunity with you."
-                    className="email-btn"
-                  >
-                    Send Direct Email
-                  </Button>
-                </div> */}
               </div>
             </Card>
 
