@@ -11,6 +11,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPortfolio />} />
           <Route path="/freelance" element={<Freelance />} />
+          {/* Add a catch-all route for better mobile handling */}
+          <Route path="*" element={<MainPortfolio />} />
         </Routes>
       </div>
     </Router>
