@@ -16,9 +16,27 @@ const Hero = () => {
   return (
     <section id="hero" className="hero-section">
       <div className="hero-container">
-        <Row gutter={[48, 0]} align="middle" justify="center">
+        <Row gutter={[48, 48]} align="middle" justify="center">
           
-          <Col xs={24} md={12} className="hero-content">
+          {/* Image FIRST on mobile, SECOND on desktop */}
+          <Col xs={24} md={12} className="hero-image-col" order={{ xs: 1, md: 2 }}>
+            <div className="profile-image-container">
+              <div className="profile-image-wrapper">
+                <img 
+                  src={myPic}
+                  alt="Bhuvi - Full Stack Developer"
+                  className="profile-image"
+                  onError={(e) => {
+                    e.target.src = 'https://via.placeholder.com/400x400/1890ff/ffffff?text=Bhuvi';
+                  }}
+                />
+                <div className="image-border"></div>
+              </div>
+            </div>
+          </Col>
+
+          {/* Text SECOND on mobile, FIRST on desktop */}
+          <Col xs={24} md={12} className="hero-text-col" order={{ xs: 2, md: 1 }}>
             <div className="hero-text">
               <h1 className="hero-title">
                 I am a
@@ -40,23 +58,6 @@ const Hero = () => {
               >
                 Download Resume
               </Button>
-            </div>
-          </Col>
-
-          {/* Right Side - Profile Picture */}
-          <Col xs={24} md={12} className="hero-image-col">
-            <div className="profile-image-container">
-              <div className="profile-image-wrapper">
-                <img 
-                  src={myPic}
-                  alt="Bhuvi - Full Stack Developer"
-                  className="profile-image"
-                  onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/400x400/1890ff/ffffff?text=Bhuvi';
-                  }}
-                />
-                <div className="image-border"></div>
-              </div>
             </div>
           </Col>
         </Row>
